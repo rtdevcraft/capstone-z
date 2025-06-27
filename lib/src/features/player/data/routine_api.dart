@@ -1,4 +1,3 @@
-import 'package:zenigo/src/core/models/routine.dart';
 
 abstract class RoutineApi {
   Future<List<Map<String, dynamic>>> fetchAllRoutines();

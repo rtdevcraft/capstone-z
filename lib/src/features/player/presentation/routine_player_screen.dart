@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:zenigo/src/features/player/presentation/animated_instruction.dart';
 import 'package:zenigo/src/features/player/presentation/routine_player_controller.dart';
 import 'package:zenigo/src/shared/constants/app_icons.dart';

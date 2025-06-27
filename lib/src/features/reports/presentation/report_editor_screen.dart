@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zenigo/src/core/models/report.dart';
-import 'package:zenigo/src/features/reports/presentation/report_controller.dart';
-import 'package:uuid/uuid.dart';
 import 'package:zenigo/src/shared/constants/app_icons.dart';
 
 class ReportEditorScreen extends ConsumerStatefulWidget {
@@ -141,12 +139,6 @@ class _ReportEditorScreenState extends ConsumerState<ReportEditorScreen> {
   void _saveReport() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      final report = Report(
-        id: widget.report?.id ?? const Uuid().v4(),
-        title: _title,
-        dateRange: _dateRange,
-        rows: _rows,
-      );
       // ref.read(reportControllerProvider.notifier).saveReport(report);
     }
   }

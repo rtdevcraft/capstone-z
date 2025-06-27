@@ -93,13 +93,12 @@ class _RoutineEditorScreenState extends ConsumerState<RoutineEditorScreen> {
                       value: null,
                       child: Text('None'),
                     ),
-                    ...RoutineCategory.values
-                        .where((c) => c != RoutineCategory.all)
-                        .map((category) => DropdownMenuItem(
-                              value: category,
-                              child: Text(category.displayName),
-                            ))
-                        ,
+                    ...RoutineCategory.values.map((category) {
+                      return DropdownMenuItem(
+                        value: category,
+                        child: Text(category.displayName),
+                      );
+                    }),
                   ],
                   onChanged: (value) {
                     setState(() {

@@ -19,7 +19,7 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    Theme.of(context);
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       width: screenWidth * widthFactor,

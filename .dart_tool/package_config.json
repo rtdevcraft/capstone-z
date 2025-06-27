@@ -242,6 +242,12 @@
       "languageVersion": "3.8"
     },
     {
+      "name": "flutter_markdown",
+      "rootUri": "file:///C:/Users/Rachelll/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_markdown-0.7.7+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "flutter_riverpod",
       "rootUri": "file:///C:/Users/Rachelll/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_riverpod-2.6.1",
       "packageUri": "lib/",
@@ -408,6 +414,12 @@
       "rootUri": "file:///C:/Users/Rachelll/AppData/Local/Pub/Cache/hosted/pub.dev/logging-1.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "markdown",
+      "rootUri": "file:///C:/Users/Rachelll/AppData/Local/Pub/Cache/hosted/pub.dev/markdown-7.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "matcher",

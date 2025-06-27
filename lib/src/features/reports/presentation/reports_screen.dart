@@ -1,11 +1,9 @@
-import 'package:universal_html/html.dart' as html;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:universal_io/io.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:zenigo/src/core/services/download_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:zenigo/src/core/models/report.dart';
 import 'package:zenigo/src/features/reports/data/report_repository.dart';

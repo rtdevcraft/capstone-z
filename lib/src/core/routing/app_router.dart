@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:zenigo/src/core/auth/auth_state_provider.dart';
 import 'package:zenigo/src/features/auth/presentation/auth_screen.dart';
 import 'package:zenigo/src/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:zenigo/src/features/guide/presentation/guide_screen.dart';
 import 'package:zenigo/src/features/library/presentation/content_library_screen.dart';
 import 'package:zenigo/src/features/player/presentation/routine_player_screen.dart';
 import 'package:zenigo/src/features/progress/presentation/progress_screen.dart';
@@ -86,6 +86,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/create-report',
         builder: (context, state) => const ReportEditorScreen(),
+      ),
+      GoRoute(
+        path: '/guide',
+        builder: (context, state) => const GuideScreen(),
       ),
     ],
   );

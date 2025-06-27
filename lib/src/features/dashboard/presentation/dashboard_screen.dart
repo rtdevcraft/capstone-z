@@ -21,9 +21,7 @@ final dashboardDataProvider =
     final routineRepo = ref.watch(routineRepositoryProvider);
     final userStatsStream = ref.watch(progressRepositoryProvider).watchUserStats();
 
-    // In a real app, the daily pick would be determined by some logic.
-    // For now, we'll just grab the first routine.
-    // Calculate dailyPick once
+    
     final Routine? dailyPick = await routineRepo.getAllRoutines().then((r) => r.isNotEmpty ? r.first : null);
 
     // Yield combined data for each userStats emission
@@ -62,6 +60,13 @@ class DashboardScreen extends ConsumerWidget {
             tooltip: 'Sign Out',
             onPressed: () async {
               await ref.read(authRepositoryProvider).signOut();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.help_outline),
+            tooltip: 'User Guide',
+            onPressed: () {
+              GoRouter.of(context).push('/guide');
             },
           ),
         ],

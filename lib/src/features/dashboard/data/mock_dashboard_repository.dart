@@ -12,8 +12,7 @@ class MockDashboardRepository {
 
   /// Fetches the featured "Daily Pick" routine.
   Future<Routine?> getDailyPick() async {
-    // In a real app, this would be determined by some logic.
-    // Here, we'll just feature the "desk-reset" routine.
+    
     return _routineRepository.getRoutineById('desk-reset');
   }
 
