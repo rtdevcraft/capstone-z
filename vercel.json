@@ -1,8 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "pubspec.yaml",
-      "use": "@vercel/flutter"
+      "use": "@vercel/flutter",
+      "config": {
+        "outputDirectory": "build/web"
+      }
     }
   ],
   "routes": [
