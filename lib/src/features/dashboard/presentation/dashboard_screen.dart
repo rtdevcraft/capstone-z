@@ -60,13 +60,10 @@ class DashboardScreen extends ConsumerWidget {
             tooltip: 'Sign Out',
             onPressed: () async {
               await ref.read(authRepositoryProvider).signOut();
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.help_outline),
-            tooltip: 'User Guide',
-            onPressed: () {
-              GoRouter.of(context).push('/guide');
+              ref.invalidate(dashboardDataProvider);
+              ref.invalidate(userStatsProvider);
+              ref.invalidate(progressRepositoryProvider);
+              ref.invalidate(routineRepositoryProvider);
             },
           ),
         ],

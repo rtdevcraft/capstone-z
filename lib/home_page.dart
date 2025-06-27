@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:zenigo/src/core/auth/auth_repository.dart';
 import 'package:zenigo/src/shared/constants/app_icons.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context, WidgetRef ref) async {
     try {
-      await Supabase.instance.client.auth.signOut();
-      // The listener in SplashPage will handle navigation automatically.
-      // No need for manual navigation here.
+      await ref.read(authRepositoryProvider).signOut();
     } on AuthException catch (error) {
-      if (mounted) {
+      if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(error.message),
           backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
     } catch (error) {
-      if (mounted) {
+      if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('An unexpected error occurred'),
           backgroundColor: Theme.of(context).colorScheme.error,
@@ -33,14 +28,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
         actions: [
           IconButton(
             icon: const Icon(AppIcons.logout),
-            onPressed: _signOut,
+            onPressed: () => _signOut(context, ref),
           )
         ],
       ),

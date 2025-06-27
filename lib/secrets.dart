@@ -1,7 +1,10 @@
-// lib/secrets.dart
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-// Replace with your actual Supabase project URL
-const String supabaseUrl = 'YOUR_SUPABASE_URL';
+class Secrets {
+  static Future<void> load() async {
+    await dotenv.load(fileName: ".env");
+  }
 
-// Replace with your actual Supabase anon key
-const String supabaseAnnonKey = 'YOUR_SUPABASE_ANON_KEY';
+  static String get supabaseUrl => dotenv.env['SUPABASE_URL'] ?? '';
+  static String get supabaseAnonKey => dotenv.env['SUPABASE_ANON_KEY'] ?? '';
+}

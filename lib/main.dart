@@ -3,18 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zenigo/src/core/auth/auth_state_provider.dart';
 import 'package:zenigo/src/core/routing/app_router.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:zenigo/src/shared/theme/color_schemes.g.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zenigo/secrets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
+  await Secrets.load();
 
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
-    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
+    url: Secrets.supabaseUrl,
+    anonKey: Secrets.supabaseAnonKey,
   );
 
   runApp(const ProviderScope(child: MyApp()));
