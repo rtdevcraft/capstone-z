@@ -57,3 +57,8 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
   final client = Supabase.instance.client;
   return AuthRepository(client);
 });
+
+final authStreamProvider = StreamProvider<AuthState>((ref) {
+  final client = Supabase.instance.client;
+  return client.auth.onAuthStateChange;
+});
