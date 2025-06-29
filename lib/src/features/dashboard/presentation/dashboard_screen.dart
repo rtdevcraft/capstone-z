@@ -18,13 +18,14 @@ final userStatsProvider = StreamProvider<UserStats>((ref) {
 final dashboardDataProvider =
     StreamProvider<({Routine? dailyPick, UserStats userStats})>(
   (ref) async* {
+    ref.watch(authStreamProvider);
     final routineRepo = ref.watch(routineRepositoryProvider);
-    final userStatsStream = ref.watch(progressRepositoryProvider).watchUserStats();
+    final userStatsStream =
+        ref.watch(progressRepositoryProvider).watchUserStats();
 
-    
-    final Routine? dailyPick = await routineRepo.getAllRoutines().then((r) => r.isNotEmpty ? r.first : null);
+    final Routine? dailyPick =
+        await routineRepo.getAllRoutines().then((r) => r.firstOrNull);
 
-    // Yield combined data for each userStats emission
     await for (final userStats in userStatsStream) {
       yield (dailyPick: dailyPick, userStats: userStats);
     }
